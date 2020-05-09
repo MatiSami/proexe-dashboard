@@ -1,0 +1,12 @@
+.modal-dialog {
+    z-index: 2;
+    position: fixed;
+    top: 10%;
+    left: 0;
+    right: 50%;
+    transform: translate(70%);
+}
+
+.text-warning {
+    color: red !important ;
+}

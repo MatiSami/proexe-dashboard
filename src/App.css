@@ -1,0 +1,35 @@
+.wrapper {
+  width: 70%;
+  margin: 0 auto;
+  padding-top: 50px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+}
+
+.table-head {
+  display: flex;
+  height: 80px;
+  padding: 10px 0;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  flex-direction: row;
+}
+
+.table-title {
+  margin-bottom: 0;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.sort {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.table thead th {
+  vertical-align: middle;
+}
