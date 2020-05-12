@@ -27,22 +27,24 @@ class App extends React.Component {
     compare: false,
   };
 
-  componentDidMount() {
-    fetch("https://jsonplaceholder.typicode.com/users")
+  componentDidMount(){
+     fetch("https://jsonplaceholder.typicode.com/users")
       .then((response) => response.json())
       .then((res) =>
         this.setState({
           dataUsers: res,
-        })
+        }),
+        console.log("fetch")
       );
-  }
+  };
+   
+
 
   openDeleteModal = (e) => {
     this.setState({
       isDeleteModalOpen: true,
       elementToRemove: e.target.parentElement.parentElement,
     });
-    console.log(this.state.elementToRemove);
   };
   closeDeleteModal = () => {
     this.setState({
@@ -92,32 +94,27 @@ class App extends React.Component {
       validationEmail: true,
       isValidate: false,
     });
-    console.log("działam");
   };
 
   handleChangeName = (event) => {
     this.setState({
       name: event.target.value,
     });
-    console.log(this.state.name);
   };
   handleChangeUserName = (event) => {
     this.setState({
       username: event.target.value,
     });
-    console.log(this.state.username);
   };
   handleChangeCity = (event) => {
     this.setState({
       city: event.target.value,
     });
-    console.log(this.state.city);
   };
   handleChangeEmail = (event) => {
     this.setState({
       email: event.target.value,
     });
-    console.log(this.state.email);
   };
 
   submitFn = (e) => {
@@ -237,9 +234,6 @@ class App extends React.Component {
       sort: !prevState.sort,
       compare: true,
     }));
-
-    console.log(this.state.sort);
-    console.log(this.state.compare);
   };
 
   render() {
@@ -313,13 +307,14 @@ class App extends React.Component {
                 <th>Delete</th>
               </tr>
             </thead>
-            <DashTable
+            {this.state.dataUsers !== [] && (<DashTable
               data={this.state.dataUsers}
               openEditModal={this.openEditModal}
               openDeleteModal={this.openDeleteModal}
               sorted={this.state.sort}
               compare={this.state.compare}
-            />
+            />)}
+            
           </Table>
         </div>
       </>
